@@ -1,0 +1,122 @@
+.input-city {
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  background-color: #5cdb95;
+  color: #05386b;
+  margin: 0.5rem 2rem;
+  border-bottom: 3px solid #05386b;
+}
+
+::placeholder {
+  font-size: 1rem;
+  color: #05386b;
+}
+.get-weather-btn {
+  font-weight: 400;
+  font-size: 1rem;
+  background-color: #05386b;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  margin: 0.5rem 1rem;
+  border: 1px solid rgb(51, 54, 53);
+  box-shadow: 0px 2px 5px rgb(89, 166, 142);
+}
+.get-weather-btn:hover {
+  background-color: rgb(13, 102, 72);
+  color: white;
+  border: 1px solid rgb(13, 102, 72);
+  box-shadow: 0px 2px 5px rgb(13, 102, 72);
+}
+.input-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #5cdb95;
+}
+.all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.container {
+  text-align: center;
+  margin: 20px;
+  padding: 30px;
+  box-shadow: 0px 4px 8px rgb(48, 215, 187);
+  width: 400px;
+  color: #fff;
+  height: 350px;
+  background: #379683;
+  border-radius: 10px;
+}
+.name-city-container {
+  padding: 5px;
+  margin: -39px 0px;
+  font-size: 25px;
+}
+.degree-container {
+  padding: 6px;
+  margin: -29px 0px;
+  font-size: 25px;
+}
+
+.loglat-container,
+.des-container,
+.minimax-container {
+  padding: 5px;
+}
+
+.max,
+.min {
+  padding: 7px;
+  margin: 3px;
+}
+.log,
+.lat {
+  padding: 7px;
+  margin: 3px;
+}
+.description {
+  margin-top: -1px;
+  margin-bottom: -10px;
+  margin-left: 10px;
+}
+.header {
+  font-size: 50px;
+  color: #edf5e1;
+}
+.header:hover {
+  font-size: 50px;
+  color: #05386b;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: center;
+}
+.get-weather-btn:hover {
+  font-weight: 400;
+  color: #05386b;
+  background-color: #edf5e1;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    margin: 18px;
+    padding: 25px;
+    width: 350px;
+  }
+}

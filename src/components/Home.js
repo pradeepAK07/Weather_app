@@ -12,16 +12,16 @@ export const Home = () => {
   const getWeather = async () => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       );
       console.log(response.data);
       setWeatherData({
         city: response.data.name,
         country: response.data.sys.country,
-        min_temp: findcelcius(response.data.main.temp_min),
-        max_temp: findcelcius(response.data.main.temp_max),
-        celcius: findcelcius(response.data.main.temp),
-        weatherType: response.data.weather[0].main,
+        min_temp: response.data.main.temp_min.toFixed(),
+        max_temp: response.data.main.temp_max.toFixed(),
+        celcius: response.data.main.temp.toFixed(),
+        weatherType: response.data.weather[0].description,
         lon: parseFloat(response.data.coord.lon.toFixed(2)),
         lat: parseFloat(response.data.coord.lat.toFixed(2)),
       });
@@ -30,10 +30,6 @@ export const Home = () => {
     }
   };
 
-  function findcelcius(temp) {
-    const celcius = temp - 275.15;
-    return Math.floor(celcius);
-  }
   useEffect(() => {
     console.log(weatherdata);
   }, [weatherdata]);

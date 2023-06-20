@@ -18,18 +18,22 @@ export const Home = () => {
       setWeatherData({
         city: response.data.name,
         country: response.data.sys.country,
-        min_temp: response.data.main.temp_min,
-        max_temp: response.data.main.temp_max,
-        celcius: response.data.main.temp,
+        min_temp: findcelcius(response.data.main.temp_min),
+        max_temp: findcelcius(response.data.main.temp_max),
+        celcius: findcelcius(response.data.main.temp),
         weatherType: response.data.weather[0].main,
-        lon: response.data.coord.lon,
-        lat: response.data.coord.lat,
+        lon: parseFloat(response.data.coord.lon.toFixed(2)),
+        lat: parseFloat(response.data.coord.lat.toFixed(2)),
       });
     } catch (e) {
       alert("enter the city name correctly");
     }
   };
 
+  function findcelcius(temp) {
+    const celcius = temp - 275.15;
+    return Math.floor(celcius);
+  }
   useEffect(() => {
     console.log(weatherdata);
   }, [weatherdata]);
@@ -60,17 +64,11 @@ export const Home = () => {
               </h2>
             </div>
             <div className="degree-container">
-              <h3 className="degree">
-                {Math.floor(weatherdata.celcius - 275.15)}&deg;c
-              </h3>
+              <h3 className="degree">{weatherdata.celcius}&deg;c</h3>
             </div>
             <div className="minimax-container">
-              <p className="max">
-                maximum temp - {Math.floor(weatherdata.max_temp - 275.15)}&deg;c
-              </p>
-              <p className="min">
-                minimum temp - {Math.floor(weatherdata.min_temp - 275.15)}&deg;c
-              </p>
+              <p className="max">maximum temp - {weatherdata.max_temp}&deg;c</p>
+              <p className="min">minimum temp - {weatherdata.min_temp}&deg;c</p>
             </div>
             <div className="loglat-container">
               <p className="log">longtitude - {weatherdata.lon}</p>

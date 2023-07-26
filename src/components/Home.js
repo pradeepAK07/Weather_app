@@ -9,6 +9,7 @@ export const Home = () => {
   const [weatherdata, setWeatherData] = useState(initialState);
 
   const apiKey = "112ec99765221ebd11f07b00e7e423ef";
+
   const getWeather = async () => {
     try {
       const response = await axios.get(
@@ -30,9 +31,7 @@ export const Home = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(weatherdata);
-  }, [weatherdata]);
+  console.log(weatherdata);
 
   return (
     <div className="div-container">
@@ -47,7 +46,7 @@ export const Home = () => {
             onChange={(e) => setCity(e.target.value)}
           />
           <button className="get-weather-btn" onClick={getWeather}>
-            get weather
+            Get Weather
           </button>
         </div>
       </div>
